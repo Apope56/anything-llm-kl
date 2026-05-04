@@ -27,14 +27,14 @@ class MetaGenerator {
   #customConfig = null;
 
   #defaultManifest = {
-    name: "AnythingLLM",
-    short_name: "AnythingLLM",
+    name: "K&L Counsel",
+    short_name: "K&L Counsel",
     display: "standalone",
     orientation: "portrait",
     start_url: "/",
     icons: [
       {
-        src: "/favicon.png",
+        src: "/kl-favicon.png",
         sizes: "any",
       },
     ],
@@ -53,27 +53,27 @@ class MetaGenerator {
     return [
       {
         tag: "link",
-        props: { type: "image/svg+xml", href: "/favicon.png" },
+        props: { type: "image/svg+xml", href: "/kl-favicon.png" },
         content: null,
       },
       {
         tag: "title",
         props: null,
-        content: "AnythingLLM | Your personal LLM trained on anything",
+        content: "K&L Counsel | Keith & Lorfing AI Assistant",
       },
 
       {
         tag: "meta",
         props: {
           name: "title",
-          content: "AnythingLLM | Your personal LLM trained on anything",
+          content: "K&L Counsel | Keith & Lorfing AI Assistant",
         },
       },
       {
         tag: "meta",
         props: {
           description: "title",
-          content: "AnythingLLM | Your personal LLM trained on anything",
+          content: "K&L Counsel | Keith & Lorfing AI Assistant",
         },
       },
 
@@ -81,20 +81,20 @@ class MetaGenerator {
       { tag: "meta", props: { property: "og:type", content: "website" } },
       {
         tag: "meta",
-        props: { property: "og:url", content: "https://anythingllm.com" },
+        props: { property: "og:url", content: "https://ai.lorfinglaw.com" },
       },
       {
         tag: "meta",
         props: {
           property: "og:title",
-          content: "AnythingLLM | Your personal LLM trained on anything",
+          content: "K&L Counsel | Keith & Lorfing AI Assistant",
         },
       },
       {
         tag: "meta",
         props: {
           property: "og:description",
-          content: "AnythingLLM | Your personal LLM trained on anything",
+          content: "K&L Counsel | Keith & Lorfing AI Assistant",
         },
       },
       {
@@ -102,7 +102,7 @@ class MetaGenerator {
         props: {
           property: "og:image",
           content:
-            "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/images/promo.png",
+            "/kl-logo.png",
         },
       },
 
@@ -113,20 +113,20 @@ class MetaGenerator {
       },
       {
         tag: "meta",
-        props: { property: "twitter:url", content: "https://anythingllm.com" },
+        props: { property: "twitter:url", content: "https://ai.lorfinglaw.com" },
       },
       {
         tag: "meta",
         props: {
           property: "twitter:title",
-          content: "AnythingLLM | Your personal LLM trained on anything",
+          content: "K&L Counsel | Keith & Lorfing AI Assistant",
         },
       },
       {
         tag: "meta",
         props: {
           property: "twitter:description",
-          content: "AnythingLLM | Your personal LLM trained on anything",
+          content: "K&L Counsel | Keith & Lorfing AI Assistant",
         },
       },
       {
@@ -134,12 +134,12 @@ class MetaGenerator {
         props: {
           property: "twitter:image",
           content:
-            "https://raw.githubusercontent.com/Mintplex-Labs/anything-llm/master/images/promo.png",
+            "/kl-logo.png",
         },
       },
 
-      { tag: "link", props: { rel: "icon", href: "/favicon.png" } },
-      { tag: "link", props: { rel: "apple-touch-icon", href: "/favicon.png" } },
+      { tag: "link", props: { rel: "icon", href: "/kl-favicon.png" } },
+      { tag: "link", props: { rel: "apple-touch-icon", href: "/kl-favicon.png" } },
 
       // PWA specific tags
       {
@@ -188,12 +188,12 @@ class MetaGenerator {
   }
 
   #validUrl(faviconUrl = null) {
-    if (faviconUrl === null) return "/favicon.png";
+    if (faviconUrl === null) return "/kl-favicon.png";
     try {
       const url = new URL(faviconUrl);
       return url.toString();
     } catch {
-      return "/favicon.png";
+      return "/kl-favicon.png";
     }
   }
 
@@ -229,7 +229,7 @@ class MetaGenerator {
             props: null,
             content:
               customTitle ??
-              "AnythingLLM | Your personal LLM trained on anything",
+              "K&L Counsel | Keith & Lorfing AI Assistant",
           };
         }
         // Override meta title
@@ -240,7 +240,7 @@ class MetaGenerator {
               name: "title",
               content:
                 customTitle ??
-                "AnythingLLM | Your personal LLM trained on anything",
+                "K&L Counsel | Keith & Lorfing AI Assistant",
             },
           };
         }
@@ -252,7 +252,7 @@ class MetaGenerator {
               property: "og:title",
               content:
                 customTitle ??
-                "AnythingLLM | Your personal LLM trained on anything",
+                "K&L Counsel | Keith & Lorfing AI Assistant",
             },
           };
         }
@@ -264,7 +264,7 @@ class MetaGenerator {
               property: "twitter:title",
               content:
                 customTitle ??
-                "AnythingLLM | Your personal LLM trained on anything",
+                "K&L Counsel | Keith & Lorfing AI Assistant",
             },
           };
         }
@@ -337,13 +337,13 @@ class MetaGenerator {
         null
       );
 
-      let iconUrl = "/favicon.png";
+      let iconUrl = "/kl-favicon.png";
       if (faviconURL) {
         try {
           new URL(faviconURL);
           iconUrl = faviconURL;
         } catch {
-          iconUrl = "/favicon.png";
+          iconUrl = "/kl-favicon.png";
         }
       }
 
