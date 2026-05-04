@@ -1,0 +1,245 @@
+/*
+ * Keith & Lorfing Law (K&L Counsel) — Brand override theme
+ * Source palette: lorfinglaw.com (verified via live DOM analysis)
+ * Loaded AFTER index.css to override AnythingLLM's default theme variables.
+ *
+ * Brand reusability:
+ *   To repurpose this file for another firm, replace ONLY the values in the
+ *   "BRAND TOKENS" section below. Variable names must match upstream
+ *   AnythingLLM index.css exactly. The :root and :root.light selectors mirror
+ *   upstream — keep that structure intact when re-skinning.
+ *
+ * Color philosophy:
+ *   - Background tokens map to near-black charcoals (#0B0B0B / #111 / #18181B)
+ *   - Text tokens use white at decreasing opacity (0.92 / 0.65 / 0.35)
+ *   - Single warm accent (#E66C0A "K&L orange") for CTAs, links, focus, active state
+ *   - Deeper rust (#C02B0A) for active-press / hover-on-orange
+ *   - Borders use #2E2E2E (subtle on black)
+ *   - Semantic colors (danger / success / warn) inherit from upstream — they're
+ *     meaningful regardless of brand and shouldn't be re-tinted.
+ */
+
+/* ============================================================================
+ * BRAND TOKENS — change these to re-skin for another firm
+ * ============================================================================ */
+:root {
+  /* === Anchor brand colors (referenced below) === */
+  --kl-bg-base:        #0B0B0B;     /* primary background */
+  --kl-bg-surface:     #111111;     /* lifted surface */
+  --kl-bg-card:        #141414;     /* cards / containers */
+  --kl-bg-input:       #18181B;     /* input fields, popups */
+  --kl-bg-sidebar:     #0A0A0A;     /* sidebar (deepest) */
+  --kl-border:         #2E2E2E;
+  --kl-text-strong:    rgba(255, 255, 255, 0.92);
+  --kl-text-muted:     rgba(255, 255, 255, 0.65);
+  --kl-text-faint:     rgba(255, 255, 255, 0.35);
+  --kl-text-on-accent: #FFFFFF;
+  --kl-accent:         #E66C0A;     /* primary brand orange */
+  --kl-accent-deep:    #C02B0A;     /* hover / pressed */
+  --kl-accent-tint-12: rgba(230, 108, 10, 0.12);
+  --kl-accent-tint-08: rgba(230, 108, 10, 0.08);
+  --kl-accent-tint-20: rgba(230, 108, 10, 0.20);
+  --kl-overlay-05:     rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================================================
+ * DARK THEME OVERRIDES — Maps brand tokens onto every AnythingLLM --theme-* var
+ * ============================================================================ */
+:root {
+  /* Loader */
+  --theme-loader: #ffffff;
+
+  /* Surfaces */
+  --theme-bg-primary:   var(--kl-bg-base);
+  --theme-bg-secondary: var(--kl-bg-surface);
+  --theme-bg-sidebar:   var(--kl-bg-sidebar);
+  --theme-bg-container: var(--kl-bg-base);
+  --theme-bg-chat:      var(--kl-bg-surface);
+  --theme-bg-chat-input:var(--kl-bg-input);
+  --theme-popup-menu-bg:var(--kl-bg-input);
+
+  /* Text */
+  --theme-text-primary:   var(--kl-text-strong);
+  --theme-text-secondary: var(--kl-text-muted);
+  --theme-placeholder:    var(--kl-text-faint);
+
+  /* Sidebar items */
+  --theme-sidebar-item-default:           var(--kl-overlay-05);
+  --theme-sidebar-item-selected:          var(--kl-accent-tint-20);
+  --theme-sidebar-item-hover:             var(--kl-accent-tint-12);
+  --theme-sidebar-subitem-default:        transparent;
+  --theme-sidebar-subitem-selected:       var(--kl-accent-tint-12);
+  --theme-sidebar-thread-selected:        var(--kl-accent-tint-12);
+  --theme-sidebar-subitem-hover:          var(--kl-accent-tint-08);
+  --theme-sidebar-border:                 var(--kl-border);
+  --theme-sidebar-item-workspace-active:  var(--kl-accent);
+  --theme-sidebar-item-workspace-inactive:var(--kl-text-muted);
+  --theme-sidebar-footer-icon:            var(--kl-overlay-05);
+  --theme-sidebar-footer-icon-fill:       var(--kl-text-strong);
+  --theme-sidebar-footer-icon-hover:      var(--kl-accent-tint-20);
+
+  /* Chat input */
+  --theme-chat-input-border: var(--kl-border);
+
+  /* Action menus / popups */
+  --theme-action-menu-bg:        var(--kl-bg-input);
+  --theme-action-menu-item-hover:var(--kl-accent-tint-12);
+
+  /* Settings inputs */
+  --theme-settings-input-bg:          var(--kl-bg-base);
+  --theme-settings-input-placeholder: var(--kl-text-faint);
+  --theme-settings-input-active:      var(--kl-accent-tint-20);
+  --theme-settings-input-text:        var(--kl-text-strong);
+
+  /* Modal */
+  --theme-modal-border: var(--kl-border);
+
+  /* Primary button (the big orange CTA) */
+  --theme-button-primary:       var(--kl-accent);
+  --theme-button-primary-hover: var(--kl-accent-deep);
+  --theme-button-cta:           var(--kl-accent);
+
+  /* File rows */
+  --theme-file-row-even:          var(--kl-bg-base);
+  --theme-file-row-odd:           var(--kl-bg-surface);
+  --theme-file-row-selected-even: var(--kl-accent-tint-20);
+  --theme-file-row-selected-odd:  var(--kl-accent-tint-12);
+  --theme-file-picker-hover:      var(--kl-accent-tint-12);
+
+  /* Home / dashboard */
+  --theme-home-text:                          var(--kl-text-strong);
+  --theme-home-text-secondary:                var(--kl-text-muted);
+  --theme-home-bg-card:                       var(--kl-bg-card);
+  --theme-home-bg-button:                     var(--kl-bg-input);
+  --theme-home-border:                        var(--kl-border);
+  --theme-home-button-primary:                var(--kl-accent);
+  --theme-home-button-primary-hover:          var(--kl-accent-deep);
+  --theme-home-button-secondary:              transparent;
+  --theme-home-button-secondary-hover:        var(--kl-accent-tint-12);
+  --theme-home-button-secondary-text:         var(--kl-text-strong);
+  --theme-home-button-secondary-hover-text:   var(--kl-text-on-accent);
+  --theme-home-button-secondary-border:       var(--kl-border);
+  --theme-home-button-secondary-border-hover: var(--kl-accent);
+  --theme-home-update-card-bg:                var(--kl-bg-card);
+  --theme-home-update-card-hover:             #1A1A1A;
+  --theme-home-update-source:                 var(--kl-accent);
+
+  /* Checklists / onboarding tasks (re-tinted in brand) */
+  --theme-checklist-item-bg:            var(--kl-bg-card);
+  --theme-checklist-item-bg-hover:      var(--kl-accent-tint-08);
+  --theme-checklist-item-text:          var(--kl-text-strong);
+  --theme-checklist-item-completed-bg:  var(--kl-bg-input);
+  --theme-checklist-item-completed-text:var(--kl-text-muted);
+  --theme-checklist-checkbox-fill:      var(--kl-accent);
+  --theme-checklist-checkbox-text:      var(--kl-text-on-accent);
+  --theme-checklist-item-hover:         var(--kl-accent);
+  --theme-checklist-checkbox-border:    var(--kl-text-muted);
+  --theme-checklist-button-border:      var(--kl-border);
+  --theme-checklist-button-text:        var(--kl-text-strong);
+  --theme-checklist-button-hover-bg:    var(--kl-accent-tint-12);
+  --theme-checklist-button-hover-border:var(--kl-accent);
+
+  /* Attachments (uploaded docs, etc.) */
+  --theme-attachment-bg:               var(--kl-bg-input);
+  --theme-attachment-error-bg:         rgba(180, 35, 24, 0.4); /* keep semantic */
+  --theme-attachment-success-bg:       var(--kl-bg-input);
+  --theme-attachment-text:             var(--kl-text-strong);
+  --theme-attachment-text-secondary:   var(--kl-text-muted);
+  --theme-attachment-icon:             var(--kl-text-strong);
+  --theme-attachment-icon-spinner:     var(--kl-accent);
+  --theme-attachment-icon-spinner-bg:  var(--kl-bg-input);
+
+  /* Inline / utility buttons */
+  --theme-button-text:                var(--kl-text-muted);
+  --theme-button-code-hover-text:     var(--kl-accent);
+  --theme-button-code-hover-bg:       var(--kl-accent-tint-12);
+  --theme-button-disable-hover-text:  #fec84b;  /* warning amber, keep semantic */
+  --theme-button-disable-hover-bg:    #3a3128;  /* warning amber bg, keep */
+  --theme-button-delete-hover-text:   #f97066;  /* danger red, keep semantic */
+  --theme-button-delete-hover-bg:     #37282b;  /* danger bg, keep semantic */
+}
+
+/* ============================================================================
+ * LIGHT THEME OVERRIDES — Inverted palette (white on near-black logo asset)
+ * Keep light mode usable but rarely-used; firm should default to dark.
+ * ============================================================================ */
+:root.light {
+  --theme-loader: #000000;
+
+  --theme-bg-primary:   #FFFFFF;
+  --theme-bg-secondary: #FAFAFA;
+  --theme-bg-sidebar:   #F5F5F5;
+  --theme-bg-container: #FFFFFF;
+  --theme-popup-menu-bg:#FFF7ED;
+  --theme-bg-chat:      #FFFFFF;
+  --theme-bg-chat-input:#F5F5F5;
+
+  --theme-text-primary:   #0B0B0B;
+  --theme-text-secondary: #4A4A4A;
+  --theme-placeholder:    #999999;
+
+  --theme-sidebar-item-default:           #FFFFFF;
+  --theme-sidebar-item-selected:          rgba(230, 108, 10, 0.15);
+  --theme-sidebar-item-hover:             rgba(230, 108, 10, 0.08);
+  --theme-sidebar-item-text-inactive:     #4A4A4A;
+  --theme-sidebar-item-text-active:       #C02B0A;
+  --theme-sidebar-item-workspace-active:  var(--kl-accent);
+  --theme-sidebar-item-workspace-inactive:#7A7D7E;
+  --theme-sidebar-subitem-default:        transparent;
+  --theme-sidebar-subitem-selected:       rgba(230, 108, 10, 0.10);
+  --theme-sidebar-thread-selected:        #FFFFFF;
+  --theme-sidebar-subitem-hover:          rgba(230, 108, 10, 0.06);
+  --theme-sidebar-border:                 #E5E5E5;
+  --theme-sidebar-footer-icon:            #FFFFFF;
+  --theme-sidebar-footer-icon-fill:       #6E6F6F;
+  --theme-sidebar-footer-icon-hover:      #FAE3CD;
+
+  --theme-chat-input-border: #DDDDDD;
+  --theme-action-menu-bg:    #FFFFFF;
+  --theme-action-menu-item-hover: rgba(230, 108, 10, 0.08);
+
+  --theme-settings-input-bg:         #F5F5F5;
+  --theme-settings-input-placeholder:rgba(0, 0, 0, 0.45);
+  --theme-settings-input-active:     rgba(230, 108, 10, 0.15);
+  --theme-settings-input-text:       #0B0B0B;
+
+  --theme-modal-border: #E5E5E5;
+
+  --theme-button-primary:       var(--kl-accent);
+  --theme-button-primary-hover: var(--kl-accent-deep);
+  --theme-button-cta:           var(--kl-accent);
+
+  --theme-home-text:                          #0B0B0B;
+  --theme-home-text-secondary:                #4A4A4A;
+  --theme-home-bg-card:                       #F9F9F9;
+  --theme-home-bg-button:                     #F0F0F0;
+  --theme-home-border:                        #E5E5E5;
+  --theme-home-button-primary:                var(--kl-accent);
+  --theme-home-button-primary-hover:          var(--kl-accent-deep);
+  --theme-home-button-secondary:              #FFFFFF;
+  --theme-home-button-secondary-hover:        rgba(230, 108, 10, 0.08);
+  --theme-home-button-secondary-text:         #0B0B0B;
+  --theme-home-button-secondary-hover-text:   var(--kl-accent-deep);
+  --theme-home-button-secondary-border:       #E5E5E5;
+  --theme-home-button-secondary-border-hover: var(--kl-accent);
+}
+
+/* ============================================================================
+ * BRAND TYPOGRAPHY UTILITIES
+ * Apply .font-display to h1/h2 headings on the login page, onboarding hero,
+ * and workspace empty-state for editorial Playfair Display rendering.
+ * Body / UI text uses Figtree by default (set via Tailwind sans).
+ * ============================================================================ */
+.font-display {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  letter-spacing: -0.01em;
+}
+
+/* Optional brand emphasis class for subtle accent treatment */
+.text-kl-accent {
+  color: var(--kl-accent);
+}
+.bg-kl-accent {
+  background-color: var(--kl-accent);
+}

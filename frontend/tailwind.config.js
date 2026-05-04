@@ -177,7 +177,9 @@ export default {
         "switch-selected": "linear-gradient(146deg, #5B616A 0%, #3F434B 100%)"
       },
       fontFamily: {
+        // K&L Counsel: Figtree (UI/body), Playfair Display (editorial headings via .font-display)
         sans: [
+          "Figtree",
           "plus-jakarta-sans",
           "ui-sans-serif",
           "system-ui",
@@ -193,6 +195,12 @@ export default {
           '"Segoe UI Emoji"',
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"'
+        ],
+        display: [
+          '"Playfair Display"',
+          "Georgia",
+          '"Times New Roman"',
+          "serif"
         ]
       },
       animation: {
