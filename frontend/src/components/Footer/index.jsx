@@ -2,8 +2,6 @@ import System from "@/models/system";
 import paths from "@/utils/paths";
 import {
   BookOpen,
-  DiscordLogo,
-  GithubLogo,
   Briefcase,
   Envelope,
   Globe,
@@ -20,8 +18,6 @@ import { Link } from "react-router-dom";
 export const MAX_ICONS = 3;
 export const ICON_COMPONENTS = {
   BookOpen: BookOpen,
-  DiscordLogo: DiscordLogo,
-  GithubLogo: GithubLogo,
   Envelope: Envelope,
   LinkSimple: LinkSimple,
   HouseLine: HouseLine,
@@ -51,15 +47,15 @@ export default function Footer() {
         <div className="flex space-x-4">
           <div className="flex w-fit">
             <Link
-              to={paths.github()}
+              to={paths.firmSite()}
               target="_blank"
               rel="noreferrer"
               className="transition-all duration-300 p-2 rounded-full bg-theme-sidebar-footer-icon hover:bg-theme-sidebar-footer-icon-hover"
-              aria-label="Find us on GitHub"
+              aria-label="Keith & Lorfing Law"
               data-tooltip-id="footer-item"
-              data-tooltip-content="View Source Code"
+              data-tooltip-content="Keith & Lorfing Law"
             >
-              <GithubLogo
+              <HouseLine
                 weight="fill"
                 className="h-5 w-5 text-white light:text-slate-800"
               />
@@ -67,31 +63,15 @@ export default function Footer() {
           </div>
           <div className="flex w-fit">
             <Link
-              to={paths.docs()}
+              to={paths.firmContact()}
               target="_blank"
               rel="noreferrer"
               className="transition-all duration-300 p-2 rounded-full bg-theme-sidebar-footer-icon hover:bg-theme-sidebar-footer-icon-hover"
-              aria-label="Docs"
+              aria-label="Contact IT Support"
               data-tooltip-id="footer-item"
-              data-tooltip-content="Open AnythingLLM help docs"
+              data-tooltip-content="Contact IT Support"
             >
-              <BookOpen
-                weight="fill"
-                className="h-5 w-5 text-white light:text-slate-800"
-              />
-            </Link>
-          </div>
-          <div className="flex w-fit">
-            <Link
-              to={paths.discord()}
-              target="_blank"
-              rel="noreferrer"
-              className="transition-all duration-300 p-2 rounded-full bg-theme-sidebar-footer-icon hover:bg-theme-sidebar-footer-icon-hover"
-              aria-label="Join our Discord server"
-              data-tooltip-id="footer-item"
-              data-tooltip-content="Join the AnythingLLM Discord"
-            >
-              <DiscordLogo
+              <Envelope
                 weight="fill"
                 className="h-5 w-5 text-white light:text-slate-800"
               />

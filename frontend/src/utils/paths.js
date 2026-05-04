@@ -46,8 +46,16 @@ export default {
       return "/onboarding/data-handling";
     },
   },
+  // K&L Counsel — firm-specific external links
+  firmSite: () => {
+    return "https://lorfinglaw.com/";
+  },
+  firmContact: () => {
+    return "https://lorfinglaw.com/contact";
+  },
   github: () => {
-    return "https://github.com/Mintplex-Labs/anything-llm";
+    // K&L Counsel fork — kept for attribution / auditor reference
+    return "https://github.com/Apope56/anything-llm-kl";
   },
   discord: () => {
     return "https://discord.com/invite/6UyHPeGZAC";
